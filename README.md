@@ -6,17 +6,17 @@ Build an axis such as young ↔ old, muted ↔ vivid colour, or close-up ↔ wid
 
 The first stage solves a weight update without gradient training. An optional, experimental second stage attempts refinement with gradient training. Both use the model's own responses to text; neither requires a folder of training images.
 
-**Included model backend: Krea 2 (K2).** Other architectures require a backend implementation. A model appearing in ComfyUI's loader does not mean this node supports it.
+Included model backend: Krea 2 (K2).** Other architectures require a backend implementation. A model appearing in ComfyUI's loader does not mean this node supports it.
 
 ## Important: expectations and experimental features
 
-*Zero-training works best for simple concepts the model already understands, such as photorealistic ↔ anime appearance, adding detail, or changing colour and lighting. These are examples, not guaranteed successes. Complex concepts may not work, even with tuning. Increasing the weight cannot add a concept the slider failed to capture. Realistic ↔ anime is an example custom axis, not a separate built-in preset.
+Zero-training works best for simple concepts the model already understands, such as photorealistic ↔ anime appearance, adding detail, or changing colour and lighting. These are examples, not guaranteed successes. Complex concepts may not work, even with tuning. Increasing the weight cannot add a concept the slider failed to capture. Realistic ↔ anime is an example custom axis, not a separate built-in preset.
 
 **There is no universal LoRA loading weight. In my experiments, some sliders work around +2 or -2, while others need around +20 or -20. The useful range depends on the model, concept and resulting LoRA. Start low and increase gradually while comparing images with the same seed. These values are examples, not fixed limits. Stop increasing the weight if distortion grows without improving the intended effect.
 
-**The trainer is optional and experimental. The lora → warm_start connection is also optional. You can use the saved zero-training LoRA directly without running the trainer. If you try training, connect this wire to start from the solved weights, or leave it disconnected to train from zero. The trainer still requires plan, MODEL and CLIP. Refinement is not guaranteed to improve the slider or make a complex concept work.
+The trainer is optional and experimental. The lora → warm_start connection is also optional. You can use the saved zero-training LoRA directly without running the trainer. If you try training, connect this wire to start from the solved weights, or leave it disconnected to train from zero. The trainer still requires plan, MODEL and CLIP. Refinement is not guaranteed to improve the slider or make a complex concept work.
 
-**My separate weight-baking tool is not included. I sometimes use it for sliders that need a large loading multiplier, and I may publish it later. It is separate from this node’s construction-strength and automatic-scaling controls. You can still use the saved LoRA by adjusting its loading strength.
+My separate weight-baking tool is not included. I sometimes use it for sliders that need a large loading multiplier, and I may publish it later. It is separate from this node’s construction-strength and automatic-scaling controls. You can still use the saved LoRA by adjusting its loading strength.
 
 ## Documentation
 

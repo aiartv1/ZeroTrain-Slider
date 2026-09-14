@@ -10,13 +10,13 @@ The first stage solves a weight update without gradient training. An optional, e
 
 ## Important: expectations and experimental features
 
-**Zero-training works best for relatively simple concepts the model already understands**, such as photorealistic ↔ anime appearance, adding detail, or changing colour and lighting. These are example targets, not guaranteed successes. Complex concepts and combinations of attributes can exceed what the closed-form edit can express; some will not work even with tuning. Higher weight cannot create a concept direction the edit did not capture. Realistic ↔ anime is an example custom axis, not a separately named built-in preset.
+*Zero-training works best for simple concepts the model already understands, such as photorealistic ↔ anime appearance, adding detail, or changing colour and lighting. These are examples, not guaranteed successes. Complex concepts may not work, even with tuning. Increasing the weight cannot add a concept the slider failed to capture. Realistic ↔ anime is an example custom axis, not a separate built-in preset.
 
-**There is no universal LoRA loading weight.** In the author's experiments, some sliders work around `+2` or `-2`, while others need around `+20` or `-20` to show a useful effect. The suitable range depends on the model, concept and resulting LoRA. Start low and increase gradually while comparing fixed-seed images. ±2 is a starting point, not a hard limit; ±20 is an observed example, not a recommended default or maximum. Stop increasing if distortion grows without improving the intended concept.
+**There is no universal LoRA loading weight. In my experiments, some sliders work around +2 or -2, while others need around +20 or -20. The useful range depends on the model, concept and resulting LoRA. Start low and increase gradually while comparing images with the same seed. These values are examples, not fixed limits. Stop increasing the weight if distortion grows without improving the intended effect.
 
-**The trainer is optional and experimental, and the `lora` → `warm_start` connection is entirely optional.** You can use the solver's saved LoRA directly without running the trainer. If you try the trainer, connect this wire only to initialise it from the solved weights; leave it disconnected to train from zero. The trainer still requires `plan`, MODEL and CLIP. Experimental refinement is not guaranteed to improve the slider or solve a complex concept.
+**The trainer is optional and experimental. The lora → warm_start connection is also optional. You can use the saved zero-training LoRA directly without running the trainer. If you try training, connect this wire to start from the solved weights, or leave it disconnected to train from zero. The trainer still requires plan, MODEL and CLIP. Refinement is not guaranteed to improve the slider or make a complex concept work.
 
-**The author's separate weight-baking tool is not included.** The author sometimes uses that tool for sliders needing a large loading multiplier and may publish it later. This node's existing construction-strength and automatic-scaling controls are distinct from that separate utility. It is not required to use the saved LoRA with a suitable loading strength.
+**My separate weight-baking tool is not included. I sometimes use it for sliders that need a large loading multiplier, and I may publish it later. It is separate from this node’s construction-strength and automatic-scaling controls. You can still use the saved LoRA by adjusting its loading strength.
 
 ## Documentation
 
